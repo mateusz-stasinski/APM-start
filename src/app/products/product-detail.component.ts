@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from './product';
 import { ProductListComponent } from './product-list.component';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'pm-product-detail',
@@ -14,12 +15,17 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private productListComponent: ProductListComponent) { }
+              private productService: ProductService) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pageTitle += `: ${id}`;
-    this.product = this.productListComponent.filteredProducts.find((pr: IProduct) => pr.productId == id);
+
+    this.productService.getProduct(id).subscribe(product => {
+      this.product = product;
+      console.log(this.product);
+    })
+
     console.log(this.product);
   }
 
