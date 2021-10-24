@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle + ': '+ product?.productName}}
+    </div>
+    <div class="table-responsive">
+        <div class="table">
+            <tbody>
+                <td class="card-body">
+                    <tr>Name: </tr>
+                    <tr>Code: </tr>
+                    <tr>Description: </tr>
+                    <tr>Availability: </tr>
+                    <tr>Price: </tr>
+                    <tr>5 Star Rating: </tr>
+                </td>
+                <td class="card-body">
+                    
+                </td>
+                <td>
+                    <img [src]='product?.imageUrl'
+                        style="width: 200px;">
+                </td>
+            </tbody>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button class='bth bth-outline-secondary'
+                style='width:100px'
+                (click)='onBack()'>
+            <i class='fa fa-chevron-left'></i> Back        
+        </button>
+    </div>
+</div>
