@@ -1,5 +1,6 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header"
+    style="padding-top: 20px; padding-bottom: 20px;">
         {{pageTitle + ': '+ product?.productName}}
     </div>
     <div class="table-responsive">
@@ -14,7 +15,12 @@
                     <tr>5 Star Rating: </tr>
                 </td>
                 <td class="card-body">
-                    
+                    <tr>{{product?.productName}} </tr>
+                    <tr>{{product?.productCode}} </tr>
+                    <tr>{{product?.description}} </tr>
+                    <tr>{{product?.releaseDate}} </tr>
+                    <tr>{{product?.price}} </tr>
+                    <tr *ngIf='product'><pm-star [rating]='product.starRating'></pm-star></tr>
                 </td>
                 <td>
                     <img [src]='product?.imageUrl'
